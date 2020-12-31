@@ -1,0 +1,70 @@
+软件有系统软件(操作系统)和应用软件之分
+
+人机交互方式:
+图形化界面(GUI)和命令行方式(CLI)
+
+常用的DOS命令:
+dir:列出当前目录下的内容
+md:创建目录
+rd:删除目录
+cd:进入指定目录
+cd..:退回到上级目录
+cd\:退回到根目录
+del:删除文件
+exit:退出dos命令行
+
+Java语言的特点:
+1:面向对象
+两个基本概念:类,对象
+三大特性:封装,继承,多态
+
+2:健壮性
+吸收C/C++的特点,但去掉了其影响程序健壮性的部分(如指针,内存的申请与释放等),提供了一个相对安全的内存管理和访问机制
+
+3:跨平台性
+通过java语言编写的应用程序在不同的系统平台上都可以运行.
+原理:只要在运行java应用程序的操作系统上,先安装一个java虚拟机(JVM)即可
+
+JDK是提供给Java开发人员使用的,其中包含了java的开发工具,也包括了JRE,所以安装了JDK,就不用再单独安装JRE了
+JRE=JVM+JAVA SE标准类库
+
+配置环境变量--
+
+class HelloWorld{
+  public static void main(String[] args){
+    System.out.println("Hello,World!");
+  }
+}
+
+Java严格区分大小写
+
+//单行注释
+
+/*多行注释*/
+
+文档注释(Java特有)
+格式: /**
+      @author 指定java程序的作者
+      @version 指定源文件的版本
+     */
+使用:注释内容可以被JDK提供的javadoc解析
+
+关于第一个java程序的总结
+编写:将编写的java代码保存在以.java结尾的源文件中
+编译:使用javac.exe命令编译我们的java源文件 格式:javac 源文件名.java
+运行:使用java.exe命令解释运行我们的字节码文件 格式:java 类名
+
+在一个java源文件中可以声明多个class,但是,只能最多有一个类声明为public
+public类需要与源文件同名
+
+程序的入口是main()方法 格式是固定的
+public static void main(String[] args){}
+
+输出语句:System.out.println("输出内容");
+print后的ln为换行,即输出数据后换行,没有ln只输出数据不换行
+
+每一行执行语句都以;结尾
+
+编译的过程:编译过后,会生成一个或多个字节码文件,字节码文件名与源文件中的类名相同
+
+
