@@ -1,4 +1,149 @@
+如何从键盘获取不同类型的变量:需要使用Scanner类
+具体实现步骤:
+1.导包:import java.util.Scanner;
+2.实例化:Scanner 变量名=new Scanner(System.in);
+3.调用Scanner类的相关方法,来获取指定类型的变量,例:
+int num=sc.nextInt();
+String str=sc.next();
+byte b=sc.nextByte();等等
+
+
 分支结构
 if
-if-else
+if-else(else是可选的)
 if-else if
+编写程序:由键盘输入三个整数分别存入变量num1,num2,num3
+对他们进行排序(使用if-else if-else),并且从大到小输出
+class Ex_1{
+	public static void main(String[] args){
+		int num1,num2,num3;
+		Scanner sc=new Scanner(System.in);
+		num1=sc.nextInt();
+		num2=sc.nextInt();
+		num3=sc.nextInt();
+		if(num1>num2){
+			if(num3>num1)
+				System.out.println(num3+","+num1+","+num2);
+			else if(num3<num2)
+				System.out.println(num1+","+num2+","+num3);
+			else
+				System.out.println(num1+","+num3+","+num3);
+		}
+		else{
+			if(num3>num2)
+				System.out.println(num3+","+num2+","+num1);
+			else if(num3<num1)
+				System.out.println(num2+","+num1+","+num1);
+			else
+				System.out.println(num2+","+num3+","+num1);
+		}
+			
+	}
+}
+
+class Ex_2{
+	public static void main(String[] args){
+		double da,ha;
+		Scanner sc=new Scanner(System.in);
+		da=sc.nextDouble();
+		if(da>=0&&da<=2)
+			ha=10.5*da;
+		else if(da>2)
+			ha=10.5*2+(da-2)*4;
+		else
+			System.out.println("请不要输入负数");
+		System.out.println(da+"岁的狗相当于人类"+ha+"岁的年龄");
+	}
+}
+
+如何获取一个随机数:10-99
+int value=(int)(Math.random()*90+10);
+公式:[a,b]:(int)(Math.random()*(b-a+1)+a)
+
+switch-case结构
+switch(表达式){
+case 常量1:
+  语句1;
+case 常量2:
+  语句2;
+ ...
+default:
+  语句default;
+}
+break:跳出switch-case结构
+countinue:
+default:相当于if-else中的else,也是可选的,而且位置是灵活的
+switch结构中的表达式,只能是如下的6种数据类型之一:byte,short,char,int,枚举类型(JDK5.0),String(JDK7.0)
+case后只能声明常量,不能声明范围
+用switch-case描述及格与否:
+如果switch-case结构中多个case的执行语句相同,则结果可以合并,如下
+int score=78;
+switch(score/10){
+case 0:
+case 1:
+case 2:
+case 3:
+case 4:
+case 5:
+	System.out.println("不及格");
+	break;
+case 6:
+case 7:
+case 8:
+case 9:
+case 10:
+	System.out.println("及格");
+	break;
+}
+
+更优解:
+switch(score/60)
+case 0:
+	System.out.println("不及格");
+	break;
+case 1:
+	System.out.println("及格");
+	break;
+	
+从键盘上输入2019年的month和day,要求通过程序输出输入的日期为2019年的第几天
+import java.util.Scanner
+class Ex_3{
+	public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("请输入2019年的月份");
+		int month=sc.nextInt();
+		System.out.println("请输入2019年的天数");
+		int day=sc.nextInt();
+		//定义一个变量保存总天数
+		int sumDays=0;
+		switch(month)
+		case 12:
+			sumDays+=30;//(11月天数)
+		case 11:
+			sumDays+=31;
+		case 10:
+			sumDays+=30;
+		case 9:
+			sumDays+=31;
+		case 8:
+			sumDays+=31;
+		case 7:
+			sumDays+=30;
+		case 6:
+			sumDays+=31;
+		case 5:
+			sumDays+=30;
+		case 4:
+			sumDays+=31;
+		case 3:
+			sumDays+=28;
+		case 2:
+			sumDays+=31;
+		case 1:
+			sumDays+=day;
+	}
+	System.out.println("2019年"+month+"月"+day+"日是当年的第"+sumDays+"天");
+}
+说明:
+1.凡是可以使用switch-case的结构,都可以转换为if-else.反之不可以
+2.如果一个分支既可以使用s-c又可以使用i-e(同时取值情况不多),优先选择s-c(原因:s-c执行效率稍高)
