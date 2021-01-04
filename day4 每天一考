@@ -1,0 +1,24 @@
+定义三个int型变量并赋值,使用三元运算符或者if-else获取这三个数中的较大数的实现
+int a=1;
+int b=2;
+int c=3;
+int max1,max2;
+max1=(a>b)?a:b;
+max2=(max1>c)?max1:c
+System.out.println(max2);
+
+编写程序,声明2个double型变量并赋值.判断第一个数大于10.0,且第二个数小于20.0,打印两数之和,否则,打印两数之差
+double a=15.0;
+double b=18.0;
+if(a>10.0&&b<20.0)
+  System.out.println(a+b);
+else
+  System.out.println(a-b);
+  
+交换两个变量值的代码实现
+int a,b,temp;
+a=10;
+b=20;
+temp=a;
+a=b;
+b=temp;
