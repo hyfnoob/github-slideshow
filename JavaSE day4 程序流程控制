@@ -6,6 +6,9 @@
 int num=sc.nextInt();
 String str=sc.next();
 byte b=sc.nextByte();等等
+获取char类型:
+String str=sc.next();
+char getChar=str.charAt(0);//获取索引为0位置上的字符
 
 
 分支结构
