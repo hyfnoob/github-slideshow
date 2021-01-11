@@ -87,4 +87,13 @@ public Test1{
   (2)循环体中执行break
 
 嵌套循环
-99乘法表
+99乘法
+class NineNineTable{
+	public static void main(String[] args){
+		for(int i=1;i<=9;i++)
+			for(int j=1;j<=i;j++){
+				System.out.println(i+"*"+j+"="+(i*j)+" ");
+			}
+	}
+}
+100以内所有质数输出
