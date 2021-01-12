@@ -120,3 +120,43 @@ class PrimeNumberTest{
     }
 }
 
+特殊关键字的使用:break和continue
+         适用范围        循环中使用的作用
+break    switch-case     结束当前循环
+         循环结构中
+
+continue 循环结构中       结束当次循环
+默认结束包裹关键字最近的一层循环
+
+结束外层循环的方法:
+label:for(int i=1;i<=4;i++){
+	for(int j=1;j<=10;j++){
+		if(j%4==0){
+			//break;//结束包裹关键字最近的一层循环
+			//continue;
+			//break label;//结束指定标识的一层循环
+			continue label;//结束指定标识的一层循环结构中当次循环
+		}
+		System.out.println(j);
+	}
+	System.out.println();
+}
+
+质数输出的实现方式2:
+class PrimeNumberTest{
+    public static void main(String[] args){
+		long start=System.currentTimeMillis();//获取当前时间距离1970-01-01的毫秒数
+		int count=0;//记录质数的个数
+        label:for(int i=2;i<=100;i++){
+            for(int j=2;j<=Math.sqrt(i);j++){//优化2：对本身是质数的自然数是有效的
+                if(i%j==0){
+					continue label;
+                }
+            }
+			  count++;
+        }
+		long end=System.currentTimeMillis();//获取当前时间距离1970-01-01的毫秒数
+		System.out.println("质数的个数为："+count);
+		System.out.println("time:"+(end-start));//17110 优化1break：1546 优化2：13
+    }
+}
